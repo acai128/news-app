@@ -19,7 +19,6 @@ function SearchBar() {
       console.log(res.data.articles)
     }; 
     getResults(); 
-  
   }, [searchInput]); 
 
   // Get current results
@@ -33,7 +32,7 @@ function SearchBar() {
   return (
     <div>
       <div className="text-3xl font-extrabold text-center p-10 bg-gray-600 text-white"  > 
-      <NewsListHeading heading="News Search"/>
+      <NewsListHeading className="sm:max-w-xl" heading="News Search"/>
       </div>
       <input
         className="w-full rounded ml-1 flex border-black border p-2 mb-10"
@@ -42,7 +41,7 @@ function SearchBar() {
         onChange={(event) => setSearchInput(event.target.value)}
       >
       </input>
-      <div className="grid-cols-3 gap-4">
+      <div>
         {currentResults.map(({ urlToImage, source, author, title, publishedAt, url }) => (
           <NewsList 
           urlToImage={urlToImage} 
@@ -55,8 +54,34 @@ function SearchBar() {
         ))}
       </div>
       <div>
-      <Pagination resultsPerPage={resultsPerPage} totalResults={results.length} paginate={paginate}/>
+        <Pagination resultsPerPage={resultsPerPage} totalResults={results.length} paginate={paginate}/>
       </div>
+       {/* <div>
+         <table>
+           <thead>
+           <tr>
+            <th className="w-1/2 px-4 py-2 bg-gray-300 border">Image</th>
+            <th className="w-1/4 px-4 py-2 bg-gray-300 border">Source</th>
+            <th className="w-1/4 px-4 py-2 bg-gray-300 border">Author, Title, Date, & URL</th>
+          </tr>
+           </thead>
+           <tbody>
+        {currentResults.map(({ urlToImage, source, author, title, publishedAt, url }) => (
+          <NewsList 
+          urlToImage={urlToImage} 
+          source={source.name}
+          author={author} 
+          title={title} 
+          publishedAt={publishedAt} 
+          url={url}
+          />
+        ))}
+        </tbody>
+        </table>
+      </div>
+      <div>
+        <Pagination resultsPerPage={resultsPerPage} totalResults={results.length} paginate={paginate}/>
+      </div> */}
     </div>
   );
 };
