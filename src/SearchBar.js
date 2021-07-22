@@ -42,8 +42,9 @@ function SearchBar() {
       >
       </input>
       <div>
-        {currentResults.map(({ urlToImage, source, author, title, publishedAt, url }) => (
+        {currentResults.map(({ urlToImage, source, author, title, publishedAt, url, index }) => (
           <NewsList 
+          key={index}
           urlToImage={urlToImage} 
           source={source.name}
           author={author} 
@@ -56,32 +57,6 @@ function SearchBar() {
       <div>
         <Pagination resultsPerPage={resultsPerPage} totalResults={results.length} paginate={paginate}/>
       </div>
-       {/* <div>
-         <table>
-           <thead>
-           <tr>
-            <th className="w-1/2 px-4 py-2 bg-gray-300 border">Image</th>
-            <th className="w-1/4 px-4 py-2 bg-gray-300 border">Source</th>
-            <th className="w-1/4 px-4 py-2 bg-gray-300 border">Author, Title, Date, & URL</th>
-          </tr>
-           </thead>
-           <tbody>
-        {currentResults.map(({ urlToImage, source, author, title, publishedAt, url }) => (
-          <NewsList 
-          urlToImage={urlToImage} 
-          source={source.name}
-          author={author} 
-          title={title} 
-          publishedAt={publishedAt} 
-          url={url}
-          />
-        ))}
-        </tbody>
-        </table>
-      </div>
-      <div>
-        <Pagination resultsPerPage={resultsPerPage} totalResults={results.length} paginate={paginate}/>
-      </div> */}
     </div>
   );
 };

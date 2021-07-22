@@ -1,4 +1,3 @@
-// import { PreviousMap } from 'postcss';
 import React from 'react'; 
 
 function NewsList({urlToImage, source, author, title, publishedAt, url}){
